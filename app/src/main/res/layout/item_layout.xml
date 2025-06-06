@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/textViewLocal"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="2dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Local do evento"
-        android:background="@android:color/white"/>
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewTipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="2dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Tipo do evento extremo"
-        android:background="@android:color/white"/>
+        <TextView
+            android:id="@+id/textViewLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Local do Evento" />
 
-    <TextView
-        android:id="@+id/textViewGrau"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="2dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Grau de impacto"
-        android:background="@android:color/white"/>
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Deletar item"
+            android:padding="8dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSurfaceVariant" />
 
-    <TextView
-        android:id="@+id/textViewData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="2dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Data do evento"
-        android:background="@android:color/white"/>
+        <TextView
+            android:id="@+id/textViewTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLocal"
+            tools:text="Tipo: Enchente" />
 
-    <TextView
-        android:id="@+id/textViewNumero"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="2dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Número de pessoas afetadas"
-        android:background="@android:color/white"/>
+        <TextView
+            android:id="@+id/textViewGrau"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTipo"
+            tools:text="Impacto: Alto" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/baseline_delete_24" />
+        <TextView
+            android:id="@+id/textViewData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewGrau"
+            tools:text="Data: 05/06/2025" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewData"
+            tools:text="Afetados: 150" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

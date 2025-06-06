@@ -74,4 +74,6 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
+    implementation("com.google.android.material:material:1.12.0")
 }
