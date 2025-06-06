@@ -11,4 +11,3 @@
 ## Demonstração
 
 ![GIF do App](assets/teste.gif)
-*Substitua o link acima pelo link do seu GIF.*
