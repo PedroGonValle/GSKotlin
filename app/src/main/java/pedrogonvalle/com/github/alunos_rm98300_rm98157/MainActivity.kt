@@ -1,3 +1,6 @@
+//Felipe Della Paschoa de Medeiros RM98157
+//Pedro Gonçalves Valle - RM98300
+
 package pedrogonvalle.com.github.alunos_rm98300_rm98157
 
 import android.content.Context
