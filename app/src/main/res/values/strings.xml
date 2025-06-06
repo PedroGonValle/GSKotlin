@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">Alunos_RM98300_RM98157</string>
+    <!-- Strings da MainActivity e Menu -->
+    <string name="app_name">GSKotlin</string>
+    <string name="item_name_hint">Nome do Item</string>
+    <string name="item_description_hint">Descrição do Item</string>
+    <string name="add_item_button_text">Adicionar Item</string>
+    <string name="delete_item_description">Excluir item</string>
+    <string name="menu_participants">Participantes</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_change_theme">Mudar Tema</string>
+    <string name="theme_light">Tema Claro</string>
+    <string name="theme_dark">Tema Escuro</string>
+    <string name="theme_system_default">Padrão do Sistema</string>
+
+    <!-- Strings para a tela de Participantes (para corrigir os erros) -->
+    <string name="participants_activity_title">Participantes</string>
+    <string name="participants_screen_title">Integrantes do Grupo</string>
+    <string name="participants_app_title">GS Kotlin - Eventos Climáticos</string>
+    <string name="participant_1_header">Integrante 1</string>
+    <string name="participant_1_name">Pedro Gonçalves Valle</string>
+    <string name="participant_1_rm">RM: 98300</string>
+    <string name="participant_2_header">Integrante 2</string>
+    <string name="participant_2_name">Felipe Della Paschoa de Medeiros</string>
+    <string name="participant_2_rm">RM: 98157</string>
+
+
 </resources>

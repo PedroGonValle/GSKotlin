@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ParticipantsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Toolbar adicionada para a barra de ação e botão de voltar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_participants"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/participants_activity_title"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Conteúdo da tela dentro de um NestedScrollView para garantir que role em telas menores -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
+
+            <!-- Título da Tela -->
+            <TextView
+                android:id="@+id/textViewScreenTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/participants_screen_title"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/participants_app_title"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Card do Participante 1 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_1_header"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_1_name"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_1_rm"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card do Participante 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_2_header"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_2_name"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/participant_2_rm"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

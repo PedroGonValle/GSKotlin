@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_participants"
+        android:icon="@drawable/baseline_account_box_24"
+        android:title="@string/menu_participants"
+        app:showAsAction="ifRoom" />
+
+    <!-- Novo Item de Menu para Mudar Tema -->
+    <item
+        android:id="@+id/action_change_theme"
+        android:title="@string/menu_change_theme"
+        app:showAsAction="never"> <!-- 'never' para colocar no menu overflow (três pontos) -->
+        <!-- Submenu para escolher o tema -->
+        <menu>
+            <item
+                android:id="@+id/action_theme_light"
+                android:title="@string/theme_light" />
+            <item
+                android:id="@+id/action_theme_dark"
+                android:title="@string/theme_dark" />
+            <item
+                android:id="@+id/action_theme_system"
+                android:title="@string/theme_system_default" />
+        </menu>
+    </item>
+
+    <!-- O item de Configurações pode ser removido se a mudança de tema for a única config
+         ou pode ser mantido para futuras configurações.
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu_settings"
+        app:showAsAction="never" />
+    -->
 
 </menu>

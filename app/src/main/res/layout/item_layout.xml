@@ -4,78 +4,168 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp"
-    app:cardUseCompatPadding="true">
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="?attr/colorOutline"
+    app:cardBackgroundColor="?attr/colorSurface">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="20dp">
 
+        <!-- Indicador de severidade colorido -->
+        <View
+            android:id="@+id/severityIndicator"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:background="?attr/colorError"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Cabeçalho com local e botão delete -->
         <TextView
             android:id="@+id/textViewLocal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="12dp"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/colorOnSurface"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintStart_toEndOf="@id/severityIndicator"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Local do Evento" />
+            tools:text="São Paulo - Centro" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Deletar item"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:padding="8dp"
-            android:src="@drawable/baseline_delete_24"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="24dp"
+            app:iconTint="?attr/colorError"
+            style="@style/Widget.Material3.Button.IconButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorOnSurfaceVariant" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewTipo"
+        <!-- Container de informações principais -->
+        <LinearLayout
+            android:id="@+id/mainInfoContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewLocal"
-            tools:text="Tipo: Enchente" />
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/severityIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLocal">
 
-        <TextView
-            android:id="@+id/textViewGrau"
+            <!-- Chip do tipo de evento -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:chipBackgroundColor="?attr/colorErrorContainer"
+                app:chipStrokeWidth="0dp"
+                app:chipIcon="@android:drawable/ic_dialog_alert"
+                app:chipIconTint="?attr/colorOnErrorContainer"
+                style="@style/Widget.Material3.Chip.Assist"
+                tools:text="Enchente" />
+
+            <!-- Chip do grau de impacto -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGrau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="?attr/colorSecondaryContainer"
+                app:chipStrokeWidth="0dp"
+                app:chipIcon="@android:drawable/ic_menu_info_details"
+                app:chipIconTint="?attr/colorOnSecondaryContainer"
+                style="@style/Widget.Material3.Chip.Assist"
+                tools:text="Alto" />
+
+        </LinearLayout>
+
+        <!-- Container de dados secundários -->
+        <LinearLayout
+            android:id="@+id/secondaryInfoContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewTipo"
-            tools:text="Impacto: Alto" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@id/severityIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainInfoContainer">
 
-        <TextView
-            android:id="@+id/textViewData"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewGrau"
-            tools:text="Data: 05/06/2025" />
+            <!-- Ícone e data -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/textViewNumero"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewData"
-            tools:text="Afetados: 150" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_today"
+                    app:tint="?attr/colorPrimary"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/textViewData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    tools:text="05/06/2025" />
+
+            </LinearLayout>
+
+            <!-- Ícone e número de afetados -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|end">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="?attr/colorTertiary"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/textViewNumero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textStyle="bold"
+                    tools:text="150 pessoas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </com.google.android.material.card.MaterialCardView>

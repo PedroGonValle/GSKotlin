@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    kotlin("kapt")
+    // 1. Remova o plugin 'kapt'
+    // kotlin("kapt")
+    // 2. Adicione o alias para o plugin 'ksp'
+    alias(libs.plugins.googleKsp)
 }
 
 android {
@@ -38,7 +41,8 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        // A versão do compilador do compose deve ser consistente com a versão do Kotlin
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     packaging {
         resources {
@@ -48,15 +52,30 @@ android {
 }
 
 dependencies {
-
+    // Dependências principais usando os aliases do TOML
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
+    implementation(libs.material)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.core.splashscreen)
+
+    // Room (com KSP)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    // 3. Mude de 'kapt' para 'ksp'
+    ksp(libs.androidx.room.compiler)
+
+    // Compose
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Teste
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,16 +83,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.activity:activity-ktx:1.7.0")
-
-    implementation("androidx.room:room-runtime:2.4.1")
-    kapt("androidx.room:room-compiler:2.4.1")
-    implementation("androidx.room:room-ktx:2.4.1")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
-
-    implementation("com.google.android.material:material:1.12.0")
 }
