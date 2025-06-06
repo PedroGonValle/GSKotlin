@@ -11,3 +11,11 @@
 ## Demonstração
 
 ![GIF do App](assets/teste.gif)
+
+
+## Imagens
+---
+*Inicial tema claro*
+![Inicial tema claro](assets/branca-inicial.png)
+*Equipe tema claro*
+![Equipe tema claro](assets/branca-equipe.png)
